@@ -42,7 +42,8 @@ function tt_down_on_me_replace($level1, $middle, $level2) {
 	return '<h'. ($level1 + 1) . stripslashes($middle) . ($level2 + 1) .'>';
 }
 
-add_filter('the_content', 'tt_down_on_me', 8);
 
-
+if (isset($wp_version)) { // if we are into WordPress, add the filter
+	add_filter('the_content', 'tt_down_on_me', 8);
+}
 ?>

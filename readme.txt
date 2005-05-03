@@ -13,3 +13,7 @@ Down On Me rewrites the header tags in multipost pages one level down (so `h2` b
 == How it works ==
 
 Down On Me adds a filter to the `the_content()` tag. If it detects that the post is showing in a multipost document, rewrites the header tags.
+
+== License ==
+
+ GNU General Public License.

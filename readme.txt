@@ -1,4 +1,4 @@
-=== Down On Me ===
+= Down On Me =
 Tags: formatting
 Contributors: choan
 

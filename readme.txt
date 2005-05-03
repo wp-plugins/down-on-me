@@ -1,4 +1,5 @@
 = Down On Me =
+
 Tags: formatting
 Contributors: choan
 
@@ -16,4 +17,4 @@ Down On Me adds a filter to the `the_content()` tag. If it detects that the post
 
 == License ==
 
- GNU General Public License.
+GNU General Public License.

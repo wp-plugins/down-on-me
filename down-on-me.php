@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Down on me
-Plugin URI: http://dev.wp-plugins.org/Wiki/DownOnMe
+Plugin URI: http://dev.wp-plugins.org/wiki/DownOnMe
 Description: Rewrites the header tags in your posts one level down. To be used in multipost pages.
 Version: 0.1
 Author: Choan C. Galvez <choan@alice.0z0ne.com>

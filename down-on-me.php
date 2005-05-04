@@ -3,7 +3,7 @@
 Plugin Name: Down on me
 Plugin URI: http://dev.wp-plugins.org/wiki/DownOnMe
 Description: Rewrites the header tags in your posts one level down. To be used in multipost pages.
-Version: 0.1
+Version: 0.2
 Author: Choan C. Galvez <choan@alice.0z0ne.com>
 Author URI: http://dizque.lacalabaza.net/
 */
@@ -42,7 +42,8 @@ function tt_down_on_me_replace($level1, $middle, $level2) {
 	return '<h'. ($level1 + 1) . stripslashes($middle) . ($level2 + 1) .'>';
 }
 
-add_filter('the_content', 'tt_down_on_me', 8);
 
-
+if (isset($wp_version)) { // if we are into WordPress, add the filter
+	add_filter('the_content', 'tt_down_on_me', 8);
+}
 ?>

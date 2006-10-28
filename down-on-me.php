@@ -3,7 +3,7 @@
 Plugin Name: Down on me
 Plugin URI: http://dev.wp-plugins.org/wiki/DownOnMe
 Description: Rewrites the header tags in your posts one level down. To be used in multipost pages.
-Version: 0.2
+Version: 0.3
 Author: Choan C. Galvez <choan@alice.0z0ne.com>
 Author URI: http://dizque.lacalabaza.net/
 */
@@ -26,20 +26,33 @@ Author URI: http://dizque.lacalabaza.net/
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+$tt_down_on_me_config = array(
+	"home" => 1,
+	"single" => 0,
+	"category" => 1,
+	"page" => 0
+);
+
+function tt_down_on_me_getDownlevel() {
+	global $tt_down_on_me_config;
+	if (is_home()) return $tt_down_on_me_config["home"];
+	if (is_single()) return $tt_down_on_me_config["single"];
+	if (is_category()) return $tt_down_on_me_config["category"];
+	if (is_page()) return $tt_down_on_me_config["page"];
+	return 0;
+}
 
 function tt_down_on_me($text) {
-	if (is_single() || is_page()) {
-		return $text;
-	}
-	
-	$pattern = "/<h([2-5])(.*>.*<\/h)([2-5])>/Use";
-	$replace = "tt_down_on_me_replace('\\1', '\\2', '\\3')";
+	$n = tt_down_on_me_getDownlevel();
+	if (!$n) return $text;
+	$pattern = "/<h([1-6])(.*>.*<\/h)([1-6])>/Use";
+	$replace = "tt_down_on_me_replace('\\1', '\\2', '\\3', $n)";
 	return preg_replace($pattern, $replace, $text); 
 
 }
 
-function tt_down_on_me_replace($level1, $middle, $level2) {
-	return '<h'. ($level1 + 1) . stripslashes($middle) . ($level2 + 1) .'>';
+function tt_down_on_me_replace($level1, $middle, $level2, $n) {
+	return '<h'. ($level1 + $n) . stripslashes($middle) . ($level2 + $n) .'>';
 }
 
 

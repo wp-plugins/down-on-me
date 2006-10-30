@@ -27,8 +27,8 @@ Author URI: http://dizque.lacalabaza.net/
 */
 
 $tt_down_on_me_config = array(
-	"home" => 1,
-	"single" => 0,
+	"home" => 2,
+	"single" => 2,
 	"category" => 1,
 	"page" => 0
 );
